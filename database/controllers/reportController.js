@@ -1,29 +1,24 @@
 const asyncHandler = require("express-async-handler");
-const Report = require("../models/reportModel");
+const report = require("../models/reportModel");
 
 const addReport = asyncHandler(async (req, res) => {
-    const { name, email, password } = req.body;
+    const { Report_ID, Reporter_ID, ContractName, Report,time } = req.body;
   
     // Validation
-    if (!name || !email || !password) {
+    if (!Report_ID || !Reporter_ID || !ContractName ||!Report ||!time) {
       res.status(400);
       throw new Error("Please fill in all required fields");
     }
 
     // add new report
-    const user = await Report.create({
-
+    const rprt = await report.create({
+        Report_ID, Reporter_ID, ContractName, Report,time
     });
   
-    if (user) {
-      const { _id, name, email, photo, phone, bio } = user;
+    if (rprt) {
+      const { Report_ID, Reporter_ID, ContractName, Report,time } = rprt;
       res.status(201).json({
-        _id,
-        name,
-        email,
-        photo,
-        phone,
-        bio,
+        Report_ID, Reporter_ID, ContractName, Report,time 
       });
     } else {
       res.status(400);

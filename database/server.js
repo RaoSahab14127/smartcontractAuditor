@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const userRoute = require("./routes/userRoute");
+const reportRoute = require("./routes/reportRoute");
+
 
 const errorHandler = require("./middleWare/errorMiddleWare")
 const app = express()
@@ -14,6 +16,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.json())
 
 app.use("/api/users", userRoute);
+app.use("/api/result", reportRoute);
 
 
 app.get("/", (req, res)=>{
