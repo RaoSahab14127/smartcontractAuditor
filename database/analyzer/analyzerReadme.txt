@@ -1,3 +1,4 @@
+Task will also done with the help of open ai
 javascript
 // Function to check for unchecked external calls vulnerability
 function checkUncheckedExternalCalls(contractCode) {
