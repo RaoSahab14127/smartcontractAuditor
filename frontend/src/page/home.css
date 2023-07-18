@@ -69,3 +69,14 @@ h1 {
     justify-content: center;
     align-items: center;
 }
+
+.user-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.main-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
